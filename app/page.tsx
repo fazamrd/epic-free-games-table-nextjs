@@ -1,4 +1,4 @@
-import { Table } from 'antd'
+import { Table, Tag } from 'antd'
 import Link from 'next/link'
 
 const dataSource = [
@@ -16,7 +16,7 @@ const dataSource = [
     key: '2',
     game_name: 'The Witness',
     game_url: 'https://www.metacritic.com/game/the-witness/',
-    date: '2023-11-11',
+    date: '2023-11-12',
     meta_score: 74,
     user_score: 80,
     critic_review: 100,
@@ -26,7 +26,7 @@ const dataSource = [
     key: '3',
     game_name: 'Subnautica',
     game_url: 'http://www.metacritic.com/game/pc/subnautica',
-    date: '2023-11-11',
+    date: '2023-10-11',
     meta_score: 74,
     user_score: 80,
     critic_review: 100,
@@ -44,22 +44,19 @@ const columns = [
     title: 'Game Name',
     dataIndex: 'game_name',
     key: 'game_name',
-    // render: (_, record) => (
-    //   <Link href={record.game_url}>
-    //     <a>Invite {record.name}</a>
-    //     <a>Delete</a>
-    //   </Link>
-    // ),
+    sorter: true
+    // render: (text) => <a>{text}</a>,
   },
   {
     title: 'Date',
     dataIndex: 'date',
-    key: 'date'
+    key: 'date',
+    sorter: true
   },
   {
     title: 'Meta Score',
     dataIndex: 'meta_score',
-    key: 'meta_score'
+    key: 'meta_score',
   },
   {
     title: 'User Score',
@@ -80,10 +77,17 @@ const columns = [
 
 export default function Home() {
   return (
-    <Table
-      dataSource={dataSource}
-      columns={columns}
-    />
+    <main>
+      <div>
+        <h1 style={{textAlign: "center"}}>Epic Games Free Games List</h1>
+      </div>
+      <div style={{width: "70%", margin: "50px auto"}}>
+        <Table
+          dataSource={dataSource}
+          columns={columns}
+        />
+      </div>
+    </main>
     // <main className={styles.main}>
     //   <div className={styles.description}>
     //     <p>
